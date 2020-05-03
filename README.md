@@ -11,6 +11,8 @@ Sega Genesis 3 button controllers will always put the adapter into 2 button mode
 
 **The PCB for the adapter is not yet final. Gerbers will be added to the repository at a later point in time**
 
+![PCB](https://github.com/Infinest/GENESIS2PCE/blob/master/Images/boardv1.jpg)
+
 # Mapping
 | PC Engine | Sega Genesis 3 button | Sega Genesis 6 button|
 |--|--|--|
