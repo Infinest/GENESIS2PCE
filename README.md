@@ -9,7 +9,7 @@ Sega Genesis 3 button controllers will always put the adapter into 2 button mode
 
 ## Please note:
 
-**The PCB for the adapter is not yet final. Gerbers will be added to the repository at a later point in time**
+**The PCB for the adapter is not yet final. Gerbers and a BOM will be added to the repository at a later point in time**
 
 ![PCB](https://github.com/Infinest/GENESIS2PCE/blob/master/Images/boardv1.jpg)
 
@@ -28,6 +28,16 @@ Sega Genesis 3 button controllers will always put the adapter into 2 button mode
 | IV |--| X |
 | V |--| Y |
 | VI |--| Z |
+
+# Flashing the Atmega328p
+
+The hex files for flashing the Atmega328p are available inside the Hex directory.
+The Atmega328p's fuse bytes should be set to the following values:
+| Fuse Byte | Value |
+|--|--|
+|Fuse Low Byte| 0xDF |
+|Fuse High Byte| 0xFE |
+|Extended Fuse Byte| 0xFC |
 
 # References
 Very helpful information on how to read Genesis controllers was gathered from these sources:
