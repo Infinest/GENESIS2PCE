@@ -1,4 +1,4 @@
-# Genesis2PCE
+# GENESIS2PCE
 
 This adapter PCB allows connecting Genesis 3 or 6 button controllers to your PC Engine.
 It consists of all the components a real PC Engine 6 button controller has inside of it + an Atmega328p for interfacing with Genesis controllers.
