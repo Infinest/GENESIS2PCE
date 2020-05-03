@@ -28,6 +28,6 @@ Sega Genesis 3 button controllers will always put the adapter into 2 button mode
 | VI |--| Z |
 
 # References
-Very helpful information on how to read Genesis Pads was gathered from these sources:
+Very helpful information on how to read Genesis controllers was gathered from these sources:
 * https://github.com/jonthysell/SegaController
 * https://segaretro.org/Six_Button_Control_Pad_(Mega_Drive)#Technical_information 
