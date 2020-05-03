@@ -1,0 +1,4 @@
+*.atsln
+.vs
+GENESIS2PCE/Debug
+GENESIS2PCE/Release
