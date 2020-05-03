@@ -12,8 +12,8 @@ int main(void)
 	/*
 		Initialize Ports
 		PORTC is used for Inputs from Genesis controller and Genesis select pin as output
-		PORT B is used for PCE mode output and PCE pad output pins. PB5 is used as input for Genesis Pin 9
-		PORD is exclusively used for PCE pad output pins
+		PORTB is used for PCE mode output and PCE pad output pins. PB5 is used as input for Genesis Pin 9
+		PORTD is exclusively used for PCE pad output pins
 	*/
 	DDRC =  0x1;
 	DDRB = 0xDF;
