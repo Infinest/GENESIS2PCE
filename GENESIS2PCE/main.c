@@ -11,12 +11,12 @@ int main(void)
 {
 	/*
 		Initialize Ports
-		PORTC is used for Inputs from Genesis controller and Genesis select pin as output
-		PORT B is used for PCE mode output and PCE pad output pins. PB5 is used as input for Genesis Pin 9
-		PORD is exclusively used for PCE pad output pins
+		PORT C is used for Inputs from Genesis controller and Genesis select pin as output
+		PORT B is used for PCE mode output and PCE pad output pins. PB5 is used as select output on Genesis Pin 7
+		PORT D is exclusively used for PCE pad output pins
 	*/
-	DDRC =  0x1;
-	DDRB = 0xDF;
+	DDRC = 0x0;
+	DDRB = 0xFF;
 	DDRD = 0xFF;
 	
 	PORTC = 0xFF;
@@ -45,14 +45,14 @@ void setPCE()
 {
 	bitWrite(PORTD, PC_PIN_I, bitRead(state, STATE_C));
 	bitWrite(PORTD, PC_PIN_II, bitRead(state, STATE_B));
-	bitWrite(PORTD, PC_PIN_LEFT, bitRead(state, STATE_LEFT));
-	bitWrite(PORTB, PC_PIN_RIGHT, bitRead(state, STATE_RIGHT));
+	bitWrite(PORTB, PC_PIN_LEFT, bitRead(state, STATE_LEFT));
+	bitWrite(PORTD, PC_PIN_RIGHT, bitRead(state, STATE_RIGHT));
 	bitWrite(PORTB, PC_PIN_SELECT, bitRead(state, STATE_START));
-	bitWrite(PORTB, PC_PIN_UP, bitRead(state, STATE_UP));
+	bitWrite(PORTD, PC_PIN_UP, bitRead(state, STATE_UP));
 	bitWrite(PORTB, PC_PIN_DOWN, bitRead(state, STATE_DOWN));
 	if(sixButtonMode)
 	{
-		bitWrite(PORTD, PC_PIN_RUN, bitRead(state, STATE_MODE));
+		bitWrite(PORTB, PC_PIN_RUN, bitRead(state, STATE_MODE));
 		bitWrite(PORTD, PC_PIN_III, bitRead(state, STATE_A));
 		bitWrite(PORTD, PC_PIN_IV, bitRead(state, STATE_X));
 		bitWrite(PORTD, PC_PIN_V, bitRead(state, STATE_Y));
@@ -60,7 +60,7 @@ void setPCE()
 	}
 	else
 	{
-		bitWrite(PORTD, PC_PIN_RUN, bitRead(state, STATE_A));
+		bitWrite(PORTB, PC_PIN_RUN, bitRead(state, STATE_A));
 		bitWrite(PORTD, PC_PIN_III, 1);
 		bitWrite(PORTD, PC_PIN_IV, 1);
 		bitWrite(PORTD, PC_PIN_V, 1);
@@ -89,7 +89,7 @@ void readController()
 */
 bool doReadCycle(uint8_t cycle)
 {
-	bitWrite(PORTC, GEN_7, cycle % 2);
+	bitWrite(PORTB, GEN_7, cycle % 2);
 	switch(cycle)
 	{
 		case 2:

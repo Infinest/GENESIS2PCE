@@ -32,36 +32,36 @@ FUSES =
 #define MS_DELAY  5
 #define CYCLES_PER_READ 8
 
-#define GEN_1 bitRead(PINC, PINC5)
-#define GEN_2 bitRead(PINC, PINC4)
-#define GEN_3 bitRead(PINC, PINC3)
-#define GEN_4 bitRead(PINC, PINC2)
-#define GEN_6 bitRead(PINC, PINC1)
-#define GEN_7 PINC0
-#define GEN_9 bitRead(PINB, PINB5)
+#define GEN_1 bitRead(PINC, PINC3)
+#define GEN_2 bitRead(PINC, PINC2)
+#define GEN_3 bitRead(PINC, PINC1)
+#define GEN_4 bitRead(PINC, PINC0)
+#define GEN_6 bitRead(PINC, PINC5)
+#define GEN_7 PINB5
+#define GEN_9 bitRead(PINC, PINC4)
 
 #define PCE_MODE_AND_LED PINB4
 
 //1Y
-#define PC_PIN_I PIND5
-#define PC_PIN_UP PINB1
+#define PC_PIN_I PIND0//PIND5
+#define PC_PIN_UP PIND6//PINB1
 //2Y
-#define PC_PIN_II PIND4
-#define PC_PIN_RIGHT PINB3
+#define PC_PIN_II PIND1//PIND4
+#define PC_PIN_RIGHT PIND7//PINB3
 //4Y
-#define PC_PIN_RUN PIND7
-#define PC_PIN_LEFT PIND6
+#define PC_PIN_RUN PINB3//PIND7
+#define PC_PIN_LEFT PINB1//PIND6
 //3Y
-#define PC_PIN_SELECT PINB0
-#define PC_PIN_DOWN PINB2
+#define PC_PIN_SELECT PINB2//PINB0
+#define PC_PIN_DOWN PINB0//PINB2
 // 2 1Y
-#define PC_PIN_III PIND3
+#define PC_PIN_III PIND2//PIND3
 // 2 2Y
-#define PC_PIN_IV PIND2
+#define PC_PIN_IV PIND3//PIND2
 // 2 3Y
-#define PC_PIN_V PIND1
+#define PC_PIN_V PIND4//PIND1
 // 2 4Y
-#define PC_PIN_VI PIND0
+#define PC_PIN_VI PIND5//PIND0
 
 enum
 {
