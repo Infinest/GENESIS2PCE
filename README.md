@@ -8,7 +8,7 @@ To ensure compatiblity with other games and the Sega Genesis 6 button controller
 Sega Genesis 3 button controllers will always put the adapter into 2 button mode.
 
 - Gerber files can be found in the Gerber directory
-- The BOM can be found in the BOM directory
+- BOMs can be found in the BOM directory
 - Hex files for flashing the Atmega328p can be found in the Hex directory
 
 ![PCB](https://github.com/Infinest/GENESIS2PCE/blob/master/Images/boardv3.jpg)
