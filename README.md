@@ -7,11 +7,11 @@ When connecting a Genesis 6 button controller without holding the Mode button, t
 To ensure compatiblity with other games and the Sega Genesis 6 button controller, one should hold the Mode button while powering on the adapter to put the controller into 3 button mode and the adapter into 2 button mode.
 Sega Genesis 3 button controllers will always put the adapter into 2 button mode.
 
-## Please note:
+- Gerber files can be found in the Gerber directory
+- BOMs can be found in the BOM directory
+- Hex files for flashing the Atmega328p can be found in the Hex directory
 
-**The PCB for the adapter is not yet final. Gerbers and a BOM will be added to the repository at a later point in time**
-
-![PCB](https://github.com/Infinest/GENESIS2PCE/blob/master/Images/boardv1.jpg)
+![PCB](https://github.com/Infinest/GENESIS2PCE/blob/master/Images/boardv3.jpg)
 
 # Mapping
 | PC Engine | Sega Genesis 3 button | Sega Genesis 6 button|
