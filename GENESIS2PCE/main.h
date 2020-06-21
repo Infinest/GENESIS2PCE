@@ -88,7 +88,7 @@ bool sixButtonMode = false;
 uint8_t swapState;
 uint8_t PC_SWAPPABLE_1;
 uint8_t PC_SWAPPABLE_2;
-uint32_t swapTimer = 0;
+uint16_t swapTimer = 0;
 
 int main(void);
 void setPCE();
