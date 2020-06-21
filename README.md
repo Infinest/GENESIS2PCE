@@ -22,14 +22,16 @@ Sega Genesis 3 button controllers will always put the adapter into 2 button mode
 | Down| Down | Down |
 | Left| Left | Left |
 | Right| Right | Right |
-| Select | Start | Start|
-| Run | A | Mode |
+| Select | Start / A | Start / Mode|
+| Run | A / Start | Mode / Start |
 | I | C | C |
 | II | B | B |
 | III |--| A |
 | IV |--| X |
 | V |--| Y |
 | VI |--| Z |
+
+The button assignments for Select and Run can be swapped. To do this, simply hold A, B, C & Start on your  connected Genesis controller for 8 seconds. This configuration will be retained through power cycles.
 
 # Flashing the Atmega328p
 

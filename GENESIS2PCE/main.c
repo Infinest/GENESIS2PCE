@@ -22,8 +22,12 @@ int main(void)
 	PORTC = 0xFF;
 	PORTB = 0xEF; // LED should be off and PCE mode on 2-Button on init
 	PORTD = 0xFF;
+	
+	// Load state of swapping of Run and Select assignment. If value is not 0, make sure it's 1 by doing a bitwise and with 1
+	swapState = eeprom_read_byte(0) & 1;
+	configureSwappableButtons();
 
-	//initialize Timer0
+	// Initialize Timer0
 	initTimer();
 	while (1)
 	{
@@ -33,8 +37,43 @@ int main(void)
 			readController();
 			bitWrite(PORTB, PCE_MODE_AND_LED, sixButtonMode);
 			setPCE();
+			// If A, B, C and Start are pressed, increment swapTimer. Else reset swapTimer to 0.
+			if((state & 0b11110000) == 0)
+			{
+				swapTimer++;
+				// If swapTimer has reached it's trigger value, flip swapState, write it to the eeprom storage and update PC Engine output pin assignment.
+				if(swapTimer == SWAP_TIMER_TRIGGER_VALUE)
+				{
+					swapTimer = 0;
+					swapState ^= 1;
+					eeprom_write_byte(0, swapState);
+					configureSwappableButtons();
+				}
+			}
+			else
+			{
+				swapTimer = 0;
+			}
 		}
 		sei();
+	}
+}
+
+/*
+	Assigns PC Engine output pins depending on current swapState
+*/
+void configureSwappableButtons()
+{
+	if(swapState == 0)
+	{
+		PC_SWAPPABLE_1 = PC_PIN_SELECT;
+		PC_SWAPPABLE_2 = PC_PIN_RUN;
+	}
+	else
+	{
+		PC_SWAPPABLE_1 = PC_PIN_RUN;
+		PC_SWAPPABLE_2 = PC_PIN_SELECT;
+
 	}
 }
 
@@ -47,12 +86,12 @@ void setPCE()
 	bitWrite(PORTD, PC_PIN_II, bitRead(state, STATE_B));
 	bitWrite(PORTB, PC_PIN_LEFT, bitRead(state, STATE_LEFT));
 	bitWrite(PORTD, PC_PIN_RIGHT, bitRead(state, STATE_RIGHT));
-	bitWrite(PORTB, PC_PIN_SELECT, bitRead(state, STATE_START));
+	bitWrite(PORTB, PC_SWAPPABLE_2, bitRead(state, STATE_START));
 	bitWrite(PORTD, PC_PIN_UP, bitRead(state, STATE_UP));
 	bitWrite(PORTB, PC_PIN_DOWN, bitRead(state, STATE_DOWN));
 	if(sixButtonMode)
 	{
-		bitWrite(PORTB, PC_PIN_RUN, bitRead(state, STATE_MODE));
+		bitWrite(PORTB, PC_SWAPPABLE_1, bitRead(state, STATE_MODE));
 		bitWrite(PORTD, PC_PIN_III, bitRead(state, STATE_A));
 		bitWrite(PORTD, PC_PIN_IV, bitRead(state, STATE_X));
 		bitWrite(PORTD, PC_PIN_V, bitRead(state, STATE_Y));
@@ -60,7 +99,7 @@ void setPCE()
 	}
 	else
 	{
-		bitWrite(PORTB, PC_PIN_RUN, bitRead(state, STATE_A));
+		bitWrite(PORTB, PC_SWAPPABLE_1, bitRead(state, STATE_A));
 		bitWrite(PORTD, PC_PIN_III, 1);
 		bitWrite(PORTD, PC_PIN_IV, 1);
 		bitWrite(PORTD, PC_PIN_V, 1);
@@ -136,4 +175,3 @@ bool doReadCycle(uint8_t cycle)
 	}
 	return true;
 }
-
