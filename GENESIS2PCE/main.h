@@ -30,7 +30,7 @@ FUSES =
 #define bitClear(value, bit) ((value) &= ~(1UL << (bit)))
 #define bitWrite(value, bit, bitvalue) (bitvalue ? bitSet(value, bit) : bitClear(value, bit))
 
-#define MS_DELAY  2
+#define MS_DELAY  3
 #define CYCLES_PER_READ 8
 
 #define GEN_1 bitRead(PINC, PINC3)
