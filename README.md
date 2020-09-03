@@ -6,7 +6,7 @@ When connecting a Genesis 6 button controller without holding the Mode button, t
 This means you can use it as an actual 6 button PC Engine adapter for the handful of games that support it (Street Fighter 2, Art of Fighting, Fatal Fury 2 etc.).
 To ensure compatiblity with other games and the Sega Genesis 6 button controller, one should hold the Mode button while powering on the adapter to put the controller into 3 button mode and the adapter into 2 button mode. Sega Genesis 3 button controllers will always put the adapter into 2 button mode.
 
-Which mode the adapter is currently in, is represented by LED on the adapter PCB.
+Which mode the adapter is currently in, is represented by the onboard LED.
 
 | LED on | LED off |
 |--|--|
