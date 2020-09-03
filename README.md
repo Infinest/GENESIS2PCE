@@ -10,7 +10,7 @@ Which mode the adapter is currently in, is represented by the onboard LED.
 
 | LED on | LED off |
 |--|--|
-| 6-button mode | 2-button mode |
+| 6 button mode | 2 button mode |
 
 # File structure
 - Gerber files can be found in the Gerber directory
